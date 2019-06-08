@@ -1,0 +1,25 @@
+.accordion {
+  max-width: 500px;
+  margin: auto;
+}
+
+.title {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: lightblue;
+  cursor: pointer;
+}
+
+.title--is-active {
+  background: red;
+}
+
+.answer {
+  display: none;
+  margin: 0;
+  padding: 1rem;
+}
+
+.answer--is-visible {
+  display: block;
+}

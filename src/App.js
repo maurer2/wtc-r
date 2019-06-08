@@ -10,7 +10,9 @@ class App extends Component {
     this.state = {
       showAccordion: false,
       accordionData: {},
+      activeAccordionEntry: -1,
     };
+    this.updateActiveAccordionEntry = this.updateActiveAccordionEntry.bind(this);
   }
 
   componentDidMount() {
@@ -30,12 +32,29 @@ class App extends Component {
       });
   }
 
+  updateActiveAccordionEntry(newActiveAccordionEntry) {
+    this.setState((state) => {
+      const isSameEntry = state.activeAccordionEntry === newActiveAccordionEntry;
+
+      return {
+        activeAccordionEntry: (isSameEntry) ? -1 : newActiveAccordionEntry,
+      };
+    });
+  }
+
   render() {
-    const { showAccordion, accordionData } = this.state;
+    const { showAccordion, accordionData, activeAccordionEntry } = this.state;
 
     return (
       <div className="App">
-        { showAccordion && < Accordion accordionData={ accordionData } />}
+        { showAccordion && (
+            <Accordion
+              accordionData={ accordionData }
+              activeAccordionEntry={ activeAccordionEntry }
+              handleUpdateActiveAccordionEntry={ this.updateActiveAccordionEntry }
+            />
+          )
+        }
       </div>
     );
   }
