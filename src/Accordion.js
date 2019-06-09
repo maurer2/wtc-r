@@ -6,6 +6,12 @@ import styles from'./Accordion.module.css';
 const Accordion = (props) => {
   const { accordionData, activeAccordionEntry, handleUpdateActiveAccordionEntry } = props;
 
+  const toggleEntry = (event, index) => {
+    event.preventDefault();
+
+    handleUpdateActiveAccordionEntry(index);
+  }
+
   return (
     <dl className={ styles.accordion }>
       {
@@ -16,9 +22,15 @@ const Accordion = (props) => {
             <Fragment key={ entry.id }>
               <dt
                 className={ `${styles.title} ${isActiveEntry ? styles['title--is-active'] : ''} ` }
-                onClick={ () => handleUpdateActiveAccordionEntry(index) }
+                aria-expanded={ isActiveEntry }
               >
-                { entry.question }
+                <a
+                  href="/"
+                  className={ styles['title-link'] }
+                  onClick={ (event) => toggleEntry(event, index) }
+                >
+                  { entry.question }
+                </a>
               </dt>
               <dd className={ `${styles.answer} ${isActiveEntry ? styles['answer--is-visible'] : ''} ` }>
                 { entry.answer }

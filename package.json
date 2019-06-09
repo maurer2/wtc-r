@@ -2,6 +2,8 @@
   "name": "wtc-r",
   "version": "0.1.0",
   "private": true,
+  "author": "Martin",
+  "repository": "https://github.com/maurer2/wtc-r",
   "dependencies": {
     "concurrently": "^4.1.0",
     "json-server": "^0.15.0",

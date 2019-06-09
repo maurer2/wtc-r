@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Accordion from './Accordion.js';
-import './App.css';
+import style from './App.module.css';
 
 class App extends Component {
   constructor() {
@@ -44,14 +44,15 @@ class App extends Component {
 
   render() {
     const { showAccordion, accordionData, activeAccordionEntry } = this.state;
+    const { updateActiveAccordionEntry } = this;
 
     return (
-      <div className="App">
+      <div className={ style.app }>
         { showAccordion && (
             <Accordion
               accordionData={ accordionData }
               activeAccordionEntry={ activeAccordionEntry }
-              handleUpdateActiveAccordionEntry={ this.updateActiveAccordionEntry }
+              handleUpdateActiveAccordionEntry={ updateActiveAccordionEntry }
             />
           )
         }

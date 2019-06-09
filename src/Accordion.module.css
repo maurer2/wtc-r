@@ -1,23 +1,52 @@
 .accordion {
-  max-width: 500px;
   margin: auto;
 }
 
 .title {
+  display: flex;
   margin-top: 1rem;
-  padding: 1rem;
-  background: lightblue;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  justify-content: flex-start;
+  border: 1px solid black;
+  border-radius: 5px;
+  background: #5fcfd9;
   cursor: pointer;
 }
 
 .title--is-active {
-  background: red;
+  border-bottom: 0;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.title-link {
+  display: flex;
+  width: 100%;
+  padding: 0;
+  color: #0e4ee6;
+  text-decoration: none;
+}
+
+/* prefix */
+.title-link::before {
+  content: 'Q:';
+}
+
+/* suffix */
+.title-link::after {
+  content: '[+]';
+  margin-left: auto;
 }
 
 .answer {
   display: none;
   margin: 0;
   padding: 1rem;
+  background: white;
+  border: 1px solid black;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
 }
 
 .answer--is-visible {
