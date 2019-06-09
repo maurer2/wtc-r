@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Accordion from './Accordion.js';
+
 import style from './App.module.css';
 
 class App extends Component {

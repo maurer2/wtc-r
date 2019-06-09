@@ -5,6 +5,7 @@
   "author": "Martin",
   "repository": "https://github.com/maurer2/wtc-r",
   "dependencies": {
+    "classnames": "^2.2.6",
     "concurrently": "^4.1.0",
     "json-server": "^0.15.0",
     "normalize.css": "^8.0.1",

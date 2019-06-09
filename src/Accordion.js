@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
+import classNames from 'classnames';
 
 import styles from'./Accordion.module.css';
 
@@ -21,7 +22,12 @@ const Accordion = (props) => {
           return (
             <Fragment key={ entry.id }>
               <dt
-                className={ `${styles.title} ${isActiveEntry ? styles['title--is-active'] : ''} ` }
+                className={ classNames(
+                  [styles.title],
+                  {
+                    [`${styles['title--is-active']}`]: isActiveEntry
+                  },
+                )}
                 aria-expanded={ isActiveEntry }
               >
                 <a
@@ -32,7 +38,13 @@ const Accordion = (props) => {
                   { entry.question }
                 </a>
               </dt>
-              <dd className={ `${styles.answer} ${isActiveEntry ? styles['answer--is-visible'] : ''} ` }>
+              <dd className={ classNames(
+                  [styles.answer],
+                  {
+                    [`${styles['answer--is-visible']}`]: isActiveEntry,
+                  }
+                )}
+              >
                 { entry.answer }
               </dd>
             </Fragment>

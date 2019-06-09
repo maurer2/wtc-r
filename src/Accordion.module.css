@@ -5,13 +5,10 @@
 .title {
   display: flex;
   margin-top: 1rem;
-  padding: 0.5rem 1rem;
-  width: 100%;
   justify-content: flex-start;
   border: 1px solid black;
   border-radius: 5px;
   background: #5fcfd9;
-  cursor: pointer;
 }
 
 .title--is-active {
@@ -23,7 +20,7 @@
 .title-link {
   display: flex;
   width: 100%;
-  padding: 0;
+  padding: 0.5rem 1rem;
   color: #0e4ee6;
   text-decoration: none;
 }
