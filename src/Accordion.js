@@ -1,23 +1,28 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
 import styles from'./Accordion.module.css';
 
-const Accordion = (props) => {
-  const { accordionData, activeAccordionEntry, handleUpdateActiveAccordionEntry } = props;
+const Accordion = ({ accordionData }) => {
+  const [activeEntry, updateActiveEntry] = useState(-1);
 
   const toggleEntry = (event, index) => {
     event.preventDefault();
 
-    handleUpdateActiveAccordionEntry(index);
+    if (activeEntry === index) {
+      updateActiveEntry(-1);
+      return;
+    }
+
+    updateActiveEntry(index);
   }
 
   return (
     <dl className={ styles.accordion }>
       {
         accordionData.map((entry, index) => {
-          const isActiveEntry = activeAccordionEntry === index;
+          const isActiveEntry = activeEntry === index;
 
           return (
             <Fragment key={ entry.id }>
@@ -57,8 +62,6 @@ const Accordion = (props) => {
 
 Accordion.propTypes = {
   accordionData: PropTypes.array,
-  activeAccordionEntry: PropTypes.number,
-  handleUpdateActiveAccordionEntry: PropTypes.func,
 }
 
 export default Accordion;
