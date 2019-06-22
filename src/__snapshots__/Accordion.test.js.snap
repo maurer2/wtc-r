@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion should render correctly 1`] = `
+<dl
+  className="accordion"
+>
+  <dt
+    aria-expanded={false}
+    className="title"
+  >
+    <a
+      className="title-link"
+      href="/"
+      onClick={[Function]}
+    >
+      Question 1
+    </a>
+  </dt>
+  <dd
+    className="answer"
+  >
+    Answer 1
+  </dd>
+</dl>
+`;

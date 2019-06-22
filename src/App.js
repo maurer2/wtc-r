@@ -36,10 +36,7 @@ class App extends Component {
 
     return (
       <div className={ style.app }>
-        { showAccordion && (
-            <Accordion accordionData={ accordionData } />
-          )
-        }
+        { showAccordion && ( <Accordion accordionData={ accordionData } />)}
       </div>
     );
   }

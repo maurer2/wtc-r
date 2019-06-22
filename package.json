@@ -5,8 +5,13 @@
   "author": "Martin",
   "repository": "https://github.com/maurer2/wtc-r",
   "dependencies": {
+    "@babel/core": "^7.4.5",
+    "babel-jest": "^24.8.0",
     "classnames": "^2.2.6",
     "concurrently": "^4.1.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.14.0",
+    "enzyme-to-json": "^3.3.5",
     "json-server": "^0.15.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
@@ -34,5 +39,8 @@
     "development": [
       "last 1 chrome version"
     ]
+  },
+  "jest": {
+    "snapshotSerializers": [ "enzyme-to-json/serializer" ]
   }
 }
