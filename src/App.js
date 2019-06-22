@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Accordion from './Accordion.js';
+import Accordion from './Accordion';
 
 import style from './App.module.css';
 
@@ -35,8 +35,8 @@ class App extends Component {
     const { showAccordion, accordionData } = this.state;
 
     return (
-      <div className={ style.app }>
-        { showAccordion && ( <Accordion accordionData={ accordionData } />)}
+      <div className={style.app}>
+        { showAccordion && (<Accordion accordionData={accordionData} />)}
       </div>
     );
   }

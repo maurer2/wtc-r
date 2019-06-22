@@ -5,10 +5,10 @@ import Accordion from './Accordion';
 describe('Accordion', () => {
   const accordionData = [
     {
-      answer: "Answer 1",
-      id: "1",
-      question: "Question 1"
-    }
+      answer: 'Answer 1',
+      id: '1',
+      question: 'Question 1',
+    },
   ];
   let wrapper;
 
@@ -23,5 +23,4 @@ describe('Accordion', () => {
   test('has wrapper class', () => {
     expect(wrapper.find('.accordion').exists()).toBe(true);
   });
-
 });

@@ -6,12 +6,16 @@
   "repository": "https://github.com/maurer2/wtc-r",
   "dependencies": {
     "@babel/core": "^7.4.5",
+    "@babel/plugin-transform-react-jsx-self": "^7.2.0",
+    "@babel/plugin-transform-react-jsx-source": "^7.2.0",
     "babel-jest": "^24.8.0",
     "classnames": "^2.2.6",
     "concurrently": "^4.1.0",
     "enzyme": "^3.10.0",
     "enzyme-adapter-react-16": "^1.14.0",
     "enzyme-to-json": "^3.3.5",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-plugin-react": "^7.13.0",
     "json-server": "^0.15.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.7.2",
@@ -25,10 +29,20 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "start:api:accordion": "json-server --watch ./api/accordion.json --port 3001"
+    "start:api:accordion": "json-server --watch ./api/accordion.json --port 3001",
+    "lint": "eslint src/**/*.js",
+    "lint:fix": "eslint src/**/*.js --fix"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": [
+      "react-app",
+      "eslint:recommended",
+      "plugin:react/recommended",
+      "airbnb"
+    ],
+    "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
+    }
   },
   "browserslist": {
     "production": [
@@ -41,6 +55,11 @@
     ]
   },
   "jest": {
-    "snapshotSerializers": [ "enzyme-to-json/serializer" ]
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  },
+  "peerDependencies": {
+    "eslint": "^6.0.0"
   }
 }
