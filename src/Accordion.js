@@ -22,7 +22,7 @@ const Accordion = ({ accordionData }) => {
     <dl className={styles.accordion}>
       {
         accordionData.map((entry, index) => {
-          const isActiveEntry = activeEntry === index;
+          const isActiveEntry = (activeEntry === index);
 
           return (
             <Fragment key={entry.id}>
@@ -61,7 +61,7 @@ const Accordion = ({ accordionData }) => {
 };
 
 Accordion.propTypes = {
-  accordionData: PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string]).isRequired),
+  accordionData: PropTypes.arrayOf(PropTypes.object.isRequired),
 };
 
 Accordion.defaultProps = {
