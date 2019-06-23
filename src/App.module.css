@@ -1,5 +1,6 @@
 .app {
-  margin: 50px auto;
+  margin: 2rem auto;
+  padding: 0 1rem;
   max-width: 768px;
   text-align: left;
   color: black;
