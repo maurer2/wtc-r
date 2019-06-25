@@ -21,5 +21,63 @@ exports[`Accordion should render correctly 1`] = `
   >
     Answer 1
   </dd>
+  <dt
+    aria-expanded={false}
+    className="title"
+  >
+    <a
+      className="title-link"
+      href="/"
+      onClick={[Function]}
+    >
+      Question 2
+    </a>
+  </dt>
+  <dd
+    className="answer"
+  >
+    Answer 2
+  </dd>
+</dl>
+`;
+
+exports[`Accordion should render correctly 2`] = `
+<dl
+  className="accordion"
+>
+  <dt
+    aria-expanded={true}
+    className="title title--is-active"
+  >
+    <a
+      className="title-link"
+      href="/"
+      onClick={[Function]}
+    >
+      Question 1
+    </a>
+  </dt>
+  <dd
+    className="answer answer--is-visible"
+  >
+    Answer 1
+  </dd>
+  <dt
+    aria-expanded={false}
+    className="title"
+  >
+    <a
+      className="title-link"
+      href="/"
+      onClick={[Function]}
+    >
+      Question 2
+    </a>
+  </dt>
+  <dd
+    className="answer"
+  >
+    Answer 2
+  </dd>
 </dl>
 `;
