@@ -1,45 +1,37 @@
-import React, { Component } from 'react';
+import React, { useEffect, useState } from 'react';
 import Accordion from './Accordion';
 
 import style from './App.module.css';
 
-class App extends Component {
-  constructor() {
-    super();
+function App() {
+  const [showAccordion, setShowAccordion] = useState(false);
+  const [accordionData, setAccordionData] = useState({});
+  const url = 'http://localhost:3001/accordion';
 
-    this.url = 'http://localhost:3001/accordion';
-    this.state = {
-      showAccordion: false,
-      accordionData: {},
-    };
-  }
-
-  componentDidMount() {
-    fetch(this.url)
+  const fetchData = () => {
+    fetch(url)
       .then(response => response.json())
       .then((data) => {
-        const { faqs: accordionData } = data;
+        const { faqs } = data;
 
-        if (accordionData.length === 0) {
+        if (faqs.length === 0) {
           return;
         }
 
-        this.setState({
-          showAccordion: true,
-          accordionData,
-        });
+        setAccordionData(faqs);
+        setShowAccordion(true);
       });
-  }
+  };
 
-  render() {
-    const { showAccordion, accordionData } = this.state;
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-    return (
-      <div className={style.app}>
-        { showAccordion && (<Accordion accordionData={accordionData} />)}
-      </div>
-    );
-  }
+  return (
+    <div className={style.app}>
+      { showAccordion && (<Accordion accordionData={accordionData} />)}
+    </div>
+  );
 }
 
 export default App;
