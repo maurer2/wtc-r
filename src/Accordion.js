@@ -18,6 +18,38 @@ const Accordion = ({ accordionData }) => {
     updateActiveEntry(index);
   };
 
+  const Key = ({ isActiveEntry, children }) => (
+    <dt
+      className={classNames(
+        [styles.title],
+        {
+          [`${styles['title--is-active']}`]: isActiveEntry,
+        },
+      )}
+      aria-expanded={isActiveEntry}
+    >
+      { children }
+    </dt>
+  );
+
+  const TitleLink = ({ entry, index }) => (
+    <a href="/" className={styles['title-link']} onClick={event => toggleEntry(event, index)}>
+      { entry.question }
+    </a>
+  );
+
+  const Value = ({ entry, isActiveEntry }) => (
+    <dd className={classNames(
+      [styles.answer],
+      {
+        [`${styles['answer--is-visible']}`]: isActiveEntry,
+      },
+    )}
+    >
+      { entry.answer }
+    </dd>
+  );
+
   return (
     <dl className={styles.accordion}>
       {
@@ -26,32 +58,10 @@ const Accordion = ({ accordionData }) => {
 
           return (
             <Fragment key={entry.id}>
-              <dt
-                className={classNames(
-                  [styles.title],
-                  {
-                    [`${styles['title--is-active']}`]: isActiveEntry,
-                  },
-                )}
-                aria-expanded={isActiveEntry}
-              >
-                <a
-                  href="/"
-                  className={styles['title-link']}
-                  onClick={event => toggleEntry(event, index)}
-                >
-                  { entry.question }
-                </a>
-              </dt>
-              <dd className={classNames(
-                [styles.answer],
-                {
-                  [`${styles['answer--is-visible']}`]: isActiveEntry,
-                },
-              )}
-              >
-                { entry.answer }
-              </dd>
+              <Key isActiveEntry={isActiveEntry}>
+                <TitleLink entry={entry} index={index} />
+              </Key>
+              <Value entry={entry} isActiveEntry={isActiveEntry} />
             </Fragment>
           );
         })
